@@ -10,6 +10,8 @@ import os
 # returns a date string for the date that is N days before STARTDATE
 def get_date_string(n, startdate):
 	d = startdate - timedelta(days=n)
+	if d.weekday() in [6,7]:
+		return None
 	rtn = d.strftime("%a %b %d %X %Y %z -0400")
 	return rtn
 
@@ -26,10 +28,13 @@ def main(argv):
 	i = 0
 	while i <= n:
 		curdate = get_date_string(i, startdate)
+		if not curdate:
+			i += 1
+			continue
 		num_commits = randint(1, 10)
+		i += 1
 		for commit in range(0, num_commits):
 			subprocess.call("echo '" + curdate + str(randint(0, 1000000)) +"' > realwork.txt; sync; git add realwork.txt; GIT_AUTHOR_DATE='" + curdate + "' GIT_COMMITTER_DATE='" + curdate + "' git commit -m 'update'", shell=True)
-		i += 1
 	subprocess.call("git rm realwork.txt; git commit -am 'delete'; git push;", shell=True)
 
 if __name__ == "__main__":
