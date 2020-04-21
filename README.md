@@ -12,3 +12,11 @@
 ## 0x002   CNN in Pytorch
 
 ### Train a Nerual Network(CNN) Using Pytorch (Using FashionMNIST)
+
+
+## 0x002   RNN in Pytorch
+
+### Train a ElMan Nerual Network
+
+### Train a LSTM Nerual Network
+
