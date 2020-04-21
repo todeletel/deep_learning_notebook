@@ -18,5 +18,5 @@
 
 ### Train a ElMan Nerual Network
 
-### Train a LSTM Nerual Network
+### Train a Long Short Memory Networks
 
