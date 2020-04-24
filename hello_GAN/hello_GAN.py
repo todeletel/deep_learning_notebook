@@ -78,3 +78,5 @@ class Generator(nn.Module):
         hidden_out = F.leaky_relu(hidden_node)
         output = F.tanh(self.output_layer(hidden_out))
         return x
+
+Generator().parameters
